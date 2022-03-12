@@ -1,0 +1,20 @@
+package com.greedy.branch;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/test")
+public class TestServlet extends HttpServlet {
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		request.setAttribute("test", "git branch test 입니다.");
+		// 가장 상위 directory는 정해져 있고(chap99), web directory 하위에서부터 출발
+		request.getRequestDispatcher("/WEB-INF/views/branch/result.jsp").forward(request, response);
+	}
+
+}
